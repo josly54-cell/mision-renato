@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Misión Renato: 11 Meses de Aventura ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#ffcad4,#ffe5ec);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    text-align:center;
+}
+
+.screen{
+    width:90%;
+    max-width:800px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+h1{
+    color:#e63946;
+}
+
+button{
+    background:#ff4d6d;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    margin-top:15px;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.hidden{
+    display:none;
+}
+
+.heart-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
+    gap:15px;
+    margin-top:25px;
+}
+
+.heart{
+    font-size:50px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.heart:hover{
+    transform:scale(1.2);
+}
+
+.progress{
+    margin-top:20px;
+    font-weight:bold;
+    color:#e63946;
+}
+
+#messageBox{
+    margin-top:20px;
+    padding:15px;
+    background:#fff0f3;
+    border-radius:10px;
+    min-height:50px;
+}
+
+.final{
+    line-height:1.8;
+    font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="screen" id="start">
+
+<h1>🎮 Misión Renato: 11 Meses de Aventura ❤️</h1>
+
+<p>
+📩 MENSAJE CONFIDENCIAL
+</p>
+
+<p>
+Agente Renato:
+</p>
+
+<p>
+Has sido seleccionado para una misión de alta importancia.
+</p>
+
+<p>
+Hace 11 meses comenzó una aventura inesperada entre dos compañeros de trabajo.
+</p>
+
+<p>
+Tu misión es recuperar los 11 corazones perdidos para desbloquear un mensaje secreto.
+</p>
+
+<button onclick="startGame()">Aceptar misión</button>
+
+</div>
+
+<div class="screen hidden" id="game">
+
+<h1>❤️ Encuentra los 11 recuerdos</h1>
+
+<p>
+Haz clic en cada corazón para recuperar un recuerdo especial.
+</p>
+
+<div class="heart-container" id="hearts"></div>
+
+<div id="messageBox">
+Haz clic en un corazón ❤️
+</div>
+
+<div class="progress">
+Corazones encontrados: <span id="count">0</span>/11
+</div>
+
+</div>
+
+<div class="screen hidden" id="final">
+
+<h1>🏆 MISIÓN COMPLETADA</h1>
+
+<div class="final">
+
+<p>🔓 MENSAJE SECRETO DESBLOQUEADO</p>
+
+<p>
+Felicidades, Agente Renato.
+</p>
+
+<p>
+Has completado exitosamente la misión de los 11 meses.
+</p>
+
+<p>
+Después de analizar todos los recuerdos encontrados, hemos llegado a una conclusión:
+</p>
+
+<p>
+✨ La aventura apenas está comenzando. ✨
+</p>
+
+<p>
+Quién diría que todo comenzaría en el trabajo y que terminarías convirtiéndote en una de las personas más importantes para mí.
+</p>
+
+<p>
+Gracias por las risas, por la compañía, por los abrazos, por escucharme y por todos los momentos que hemos compartido.
+</p>
+
+<p>
+Estos 11 meses han estado llenos de recuerdos que guardo con muchísimo cariño.
+</p>
+
+<p>
+No sé cuántas misiones más nos esperan, pero espero seguir completándolas contigo.
+</p>
+
+<p>
+❤️ Te quiero muchísimo ❤️
+</p>
+
+<p>
+Feliz 11 meses, Renato.
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+const memories = [
+
+"❤️ Gracias por hacerme reír incluso en los días difíciles.",
+
+"❤️ Gracias por cada conversación que comenzó como algo simple.",
+
+"❤️ Gracias por acompañarme durante estos 11 meses.",
+
+"❤️ Gracias por tu paciencia y comprensión.",
+
+"❤️ Gracias por escuchar mis historias y ocurrencias.",
+
+"❤️ Gracias por los momentos tranquilos y especiales.",
+
+"❤️ Gracias por apoyarme cuando lo necesito.",
+
+"❤️ Gracias por cada abrazo que me hace sentir mejor.",
+
+"❤️ Gracias por ser una persona tan especial para mí.",
+
+"❤️ Gracias por construir recuerdos conmigo.",
+
+"❤️ Gracias por estos maravillosos 11 meses."
+];
+
+let found = 0;
+
+function startGame(){
+
+document.getElementById("start").classList.add("hidden");
+document.getElementById("game").classList.remove("hidden");
+
+const container = document.getElementById("hearts");
+
+for(let i=0;i<11;i++){
+
+let heart = document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.onclick=function(){
+
+if(heart.dataset.clicked) return;
+
+heart.dataset.clicked=true;
+
+heart.style.opacity="0.4";
+
+document.getElementById("messageBox").innerHTML=memories[i];
+
+found++;
+
+document.getElementById("count").textContent=found;
+
+if(found===11){
+
+setTimeout(()=>{
+document.getElementById("game").classList.add("hidden");
+document.getElementById("final").classList.remove("hidden");
+},1500);
+
+}
+
+};
+
+container.appendChild(heart);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
