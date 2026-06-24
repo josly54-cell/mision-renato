@@ -2,188 +2,108 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Misión Renato: 11 Meses de Aventura ❤️</title>
+<title>Misión Renato PRO</title>
 
 <style>
 body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:linear-gradient(135deg,#ffcad4,#ffe5ec);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    text-align:center;
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#ffe6f0,#fff);
+  overflow:hidden;
 }
 
-.screen{
-    width:90%;
-    max-width:800px;
-    background:white;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
+/* fondo corazones */
+.heart{
+  position:absolute;
+  color:#ff4d88;
+  animation:float 6s linear infinite;
+  font-size:20px;
+}
+
+@keyframes float{
+  0%{transform:translateY(100vh); opacity:0;}
+  50%{opacity:1;}
+  100%{transform:translateY(-10vh); opacity:0;}
+}
+
+.container{
+  position:relative;
+  max-width:650px;
+  margin:60px auto;
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  text-align:center;
+  z-index:2;
 }
 
 h1{
-    color:#e63946;
+  color:#ff4d88;
 }
 
+/* personaje */
+#personaje{
+  width:120px;
+  border-radius:50%;
+  margin-bottom:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* botones */
 button{
-    background:#ff4d6d;
-    color:white;
-    border:none;
-    padding:12px 25px;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:16px;
-    margin-top:15px;
+  margin:8px;
+  padding:10px 18px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  background:#ff4d88;
+  color:white;
+  transition:0.3s;
 }
 
 button:hover{
-    opacity:0.9;
+  background:#e6005c;
 }
 
-.hidden{
-    display:none;
+/* texto */
+#texto{
+  font-size:16px;
+  color:#444;
+  min-height:80px;
 }
 
-.heart-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
-    gap:15px;
-    margin-top:25px;
+/* final */
+#final{
+  display:none;
 }
 
-.heart{
-    font-size:50px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.heart:hover{
-    transform:scale(1.2);
-}
-
-.progress{
-    margin-top:20px;
-    font-weight:bold;
-    color:#e63946;
-}
-
-#messageBox{
-    margin-top:20px;
-    padding:15px;
-    background:#fff0f3;
-    border-radius:10px;
-    min-height:50px;
-}
-
-.final{
-    line-height:1.8;
-    font-size:18px;
-}
 </style>
 </head>
 
 <body>
 
-<div class="screen" id="start">
+<div class="container">
 
-<h1>🎮 Misión Renato: 11 Meses de Aventura ❤️</h1>
+<h1>💌 Misión Renato PRO</h1>
 
-<p>
-📩 MENSAJE CONFIDENCIAL
+<img id="personaje" src="https://i.imgur.com/8Km9tLL.png">
+
+<p id="texto">
+Hace más de un año lo conociste en el trabajo… y desde el primer momento te cayó bien y te pareció muy lindo.
 </p>
 
-<p>
-Agente Renato:
-</p>
-
-<p>
-Has sido seleccionado para una misión de alta importancia.
-</p>
-
-<p>
-Hace 11 meses comenzó una aventura inesperada entre dos compañeros de trabajo.
-</p>
-
-<p>
-Tu misión es recuperar los 11 corazones perdidos para desbloquear un mensaje secreto.
-</p>
-
-<button onclick="startGame()">Aceptar misión</button>
-
+<div id="opciones">
+<button onclick="nivel1()">Continuar</button>
 </div>
 
-<div class="screen hidden" id="game">
+<div id="final">
 
-<h1>❤️ Encuentra los 11 recuerdos</h1>
+<h2>💛 MISIÓN COMPLETADA</h2>
 
-<p>
-Haz clic en cada corazón para recuperar un recuerdo especial.
-</p>
+<p id="mensajeFinal"></p>
 
-<div class="heart-container" id="hearts"></div>
-
-<div id="messageBox">
-Haz clic en un corazón ❤️
-</div>
-
-<div class="progress">
-Corazones encontrados: <span id="count">0</span>/11
-</div>
-
-</div>
-
-<div class="screen hidden" id="final">
-
-<h1>🏆 MISIÓN COMPLETADA</h1>
-
-<div class="final">
-
-<p>🔓 MENSAJE SECRETO DESBLOQUEADO</p>
-
-<p>
-Felicidades, Agente Renato.
-</p>
-
-<p>
-Has completado exitosamente la misión de los 11 meses.
-</p>
-
-<p>
-Después de analizar todos los recuerdos encontrados, hemos llegado a una conclusión:
-</p>
-
-<p>
-✨ La aventura apenas está comenzando. ✨
-</p>
-
-<p>
-Quién diría que todo comenzaría en el trabajo y que terminarías convirtiéndote en una de las personas más importantes para mí.
-</p>
-
-<p>
-Gracias por las risas, por la compañía, por los abrazos, por escucharme y por todos los momentos que hemos compartido.
-</p>
-
-<p>
-Estos 11 meses han estado llenos de recuerdos que guardo con muchísimo cariño.
-</p>
-
-<p>
-No sé cuántas misiones más nos esperan, pero espero seguir completándolas contigo.
-</p>
-
-<p>
-❤️ Te quiero muchísimo ❤️
-</p>
-
-<p>
-Feliz 11 meses, Renato.
-</p>
+<button onclick="reiniciar()">Repetir misión</button>
 
 </div>
 
@@ -191,77 +111,95 @@ Feliz 11 meses, Renato.
 
 <script>
 
-const memories = [
+let energia = 0; // contador de decisiones emocionales
 
-"❤️ Gracias por hacerme reír incluso en los días difíciles.",
+function nivel1(){
+  document.getElementById("texto").innerText =
+  "En el trabajo empezaron a hablar más… risas, bromas y miradas que duraban un poco más de lo normal.";
 
-"❤️ Gracias por cada conversación que comenzó como algo simple.",
-
-"❤️ Gracias por acompañarme durante estos 11 meses.",
-
-"❤️ Gracias por tu paciencia y comprensión.",
-
-"❤️ Gracias por escuchar mis historias y ocurrencias.",
-
-"❤️ Gracias por los momentos tranquilos y especiales.",
-
-"❤️ Gracias por apoyarme cuando lo necesito.",
-
-"❤️ Gracias por cada abrazo que me hace sentir mejor.",
-
-"❤️ Gracias por ser una persona tan especial para mí.",
-
-"❤️ Gracias por construir recuerdos conmigo.",
-
-"❤️ Gracias por estos maravillosos 11 meses."
-];
-
-let found = 0;
-
-function startGame(){
-
-document.getElementById("start").classList.add("hidden");
-document.getElementById("game").classList.remove("hidden");
-
-const container = document.getElementById("hearts");
-
-for(let i=0;i<11;i++){
-
-let heart = document.createElement("div");
-
-heart.className="heart";
-heart.innerHTML="❤️";
-
-heart.onclick=function(){
-
-if(heart.dataset.clicked) return;
-
-heart.dataset.clicked=true;
-
-heart.style.opacity="0.4";
-
-document.getElementById("messageBox").innerHTML=memories[i];
-
-found++;
-
-document.getElementById("count").textContent=found;
-
-if(found===11){
-
-setTimeout(()=>{
-document.getElementById("game").classList.add("hidden");
-document.getElementById("final").classList.remove("hidden");
-},1500);
-
+  document.getElementById("opciones").innerHTML =
+  `<button onclick="nivel2(1)">Seguir la broma</button>
+   <button onclick="nivel2(0)">Sonreír tímidamente</button>`;
 }
 
-};
+function nivel2(valor){
+  energia += valor;
 
-container.appendChild(heart);
+  document.getElementById("texto").innerText =
+  "Después del trabajo empezaron a ir al parque… y esas conversaciones se volvieron tu momento favorito del día.";
 
+  document.getElementById("opciones").innerHTML =
+  `<button onclick="nivel3(1)">Dejar fluir</button>
+   <button onclick="nivel3(0)">Controlarte un poco</button>`;
 }
 
+function nivel3(valor){
+  energia += valor;
+
+  document.getElementById("texto").innerText =
+  "Había algo entre ustedes que no necesitaba decirse… pero tampoco se ignoraba.";
+
+  document.getElementById("opciones").innerHTML =
+  `<button onclick="finalJuego(1)">Arriesgarte</button>
+   <button onclick="finalJuego(0)">Esperar más</button>`;
 }
+
+function finalJuego(valor){
+  energia += valor;
+
+  document.querySelector("h1").style.display = "none";
+  document.getElementById("texto").style.display = "none";
+  document.getElementById("opciones").style.display = "none";
+  document.getElementById("final").style.display = "block";
+
+  let mensaje = "";
+
+  if(energia >= 3){
+    mensaje = `
+💖 FINAL ROMÁNTICO<br><br>
+Desde el primer momento hubo algo especial… y sin forzarlo, todo fue creciendo con el tiempo.<br><br>
+No fue perfecto, pero fue real.<br><br>
+✨ Felices 11 meses ✨<br>
+Gracias por esta historia bonita que empezó sin planearse… pero se quedó.
+`;
+  }
+  else if(energia == 2){
+    mensaje = `
+🌿 FINAL TRANQUILO<br><br>
+Lo que vivieron fue bonito, ligero y sincero.<br><br>
+A veces las mejores historias no necesitan definirse para ser importantes.<br><br>
+✨ Felices 11 meses ✨
+`;
+  }
+  else{
+    mensaje = `
+💭 FINAL SUAVE<br><br>
+Tal vez no se dijo todo… pero se sintió bastante.<br><br>
+Y eso también cuenta como una historia bonita.<br><br>
+✨ Felices 11 meses ✨
+`;
+  }
+
+  document.getElementById("mensajeFinal").innerHTML = mensaje;
+}
+
+function reiniciar(){
+  location.reload();
+}
+
+/* corazones animados */
+function crearCorazon(){
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (10 + Math.random() * 20) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(()=>{ heart.remove(); },6000);
+}
+
+setInterval(crearCorazon,300);
 
 </script>
 
