@@ -42,9 +42,9 @@ h1{
   color:#ff4d88;
 }
 
-/* personaje */
+/* 👤 PERSONAJE MÁS GRANDE */
 #personaje{
-  width:120px;
+  width:180px;
   border-radius:50%;
   margin-bottom:15px;
   box-shadow:0 5px 15px rgba(0,0,0,0.2);
@@ -111,7 +111,7 @@ Hace más de un año lo conociste en el trabajo… y desde el primer momento te 
 
 <script>
 
-let energia = 0; // contador de decisiones emocionales
+let energia = 0;
 
 function nivel1(){
   document.getElementById("texto").innerText =
@@ -157,25 +157,49 @@ function finalJuego(valor){
   if(energia >= 3){
     mensaje = `
 💖 FINAL ROMÁNTICO<br><br>
-Desde el primer momento hubo algo especial… y sin forzarlo, todo fue creciendo con el tiempo.<br><br>
-No fue perfecto, pero fue real.<br><br>
-✨ Felices 11 meses ✨<br>
-Gracias por esta historia bonita que empezó sin planearse… pero se quedó.
+<img src="final_romantico.png" width="220"><br><br>
+
+A veces la vida no avisa cuando algo importante empieza… simplemente pasa.<br><br>
+
+Y contigo, todo empezó así: entre risas en el trabajo, miradas que duraban un poquito más de lo normal y conversaciones que se volvían el mejor momento del día.<br><br>
+
+Sin planearlo, sin darse cuenta, algo bonito fue creciendo… algo que se sentía natural, cómodo y especial al mismo tiempo.<br><br>
+
+No fue perfecto, pero fue real. Y eso es lo que lo hace único.<br><br>
+
+✨ Gracias por estos 11 meses de historia bonita mi baby✨<br>
+Y por todos los momentos que hicieron que esto valga la pena recordar.
 `;
   }
   else if(energia == 2){
     mensaje = `
 🌿 FINAL TRANQUILO<br><br>
-Lo que vivieron fue bonito, ligero y sincero.<br><br>
-A veces las mejores historias no necesitan definirse para ser importantes.<br><br>
+<img src="final_tranquilo.png" width="220"><br><br>
+
+No todo tiene que ser intenso para ser importante.<br><br>
+
+Entre risas en el trabajo, bromas que nadie más entendía y conversaciones en el parque después del día, se fue creando algo bonito sin planearlo demasiado.<br><br>
+
+No fue una película dramática ni un cuento perfecto… pero sí una historia con momentos que te sacan una sonrisa cuando los recuerdas.<br><br>
+
+Y al final, eso también cuenta ✨<br><br>
+
 ✨ Felices 11 meses ✨
 `;
   }
   else{
     mensaje = `
-💭 FINAL SUAVE<br><br>
-Tal vez no se dijo todo… pero se sintió bastante.<br><br>
-Y eso también cuenta como una historia bonita.<br><br>
+💭 FINAL DULCE<br><br>
+<img src="final_dulce.png" width="220"><br><br>
+
+No todo fue perfecto, pero sí especial a su manera.<br><br>
+
+Entre días normales, conversaciones simples y momentos después del trabajo, se fue creando una conexión que sin hacer mucho ruido, se sentía bonita.<br><br>
+
+Tal vez no hubo grandes declaraciones ni escenas de película… pero sí detalles pequeños que se quedan en la memoria.<br><br>
+
+Y a veces, lo más bonito no es lo intenso, sino lo simple que te hace bien ✨<br><br>
+
 ✨ Felices 11 meses ✨
 `;
   }
